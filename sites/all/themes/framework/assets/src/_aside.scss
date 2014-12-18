@@ -1,0 +1,164 @@
+aside#sidebar-second {
+    
+    #block-views-plant-gallery-block-1 {
+        //@include border-radius-2(true);
+        margin-top:20px; 
+        h2 {
+            color: $heading-color;
+            font-weight: bold;
+            margin-bottom:5px;
+            text-transform: uppercase;
+        }
+        .views-slideshow-controls-bottom {
+            display:none;
+            position:absolute;
+            bottom:10px;
+            left:55px;
+            span {
+                display:block;
+                width:25px;
+                height:25px;
+                text-indent:-9999px;
+                float:left;
+                background:url('../img/nav-controls.png') no-repeat;
+                margin-right:20px;
+                &:hover{
+                    background-position:-28px 0px;
+                }
+            }
+            .views-slideshow-controls-text-previous {
+                background-position:0 -31px;
+                &:hover{
+                    background-position:-28px -31px;
+                }
+            }
+            
+            .views-slideshow-controls-text-pause {
+                background-position:0 -95px;
+                &:hover{
+                    background-position:-28px -95px;
+                }
+            }
+        }
+        
+        p {
+            padding:10px;
+            margin:0;
+        }
+        h3, h4 {
+            position:absolute;
+            right:0px;
+            background:#fff;
+            padding:2px;
+        }
+        h3 {
+            top:270px;
+            @include background-image(linear-gradient(left, transparent 5%,  white));
+            //@include border-radius-2(true);
+            font-weight: bold;
+            font-style:italic; 
+            padding:3px 8px;
+            opacity: 0.8;
+            width:auto;
+        }
+        
+        h4 {
+            top:265px;
+        }
+        img {
+            @include border-radius-2(false);
+        }
+    }
+    
+    #block-views-forum-block-block, #block-comment-recent{
+        margin-top:20px;
+        @include border-radius-2(false);
+        //@include border-radius-2(true);
+        border:1px solid $heading-color;
+        margin-bottom:20px;
+        
+        h2 {
+          font-weight:bold;
+          color:$heading-color;
+          margin:0;
+          padding:7px 5px;
+          border-bottom:1px solid  $heading-color;
+        }
+        
+        h3{
+          padding:5px;
+          a {
+            text-transform:uppercase;
+            color:#990000;
+            text-decoration:none;
+          }
+        } 
+        
+        ul {
+          list-style:none;
+          padding:0;
+          margin:0;
+
+          li:hover {
+            background:#ccc;
+          }
+          li {
+            border-bottom:1px solid #ccc;
+            padding:10px;
+            a {
+                text-decoration:none;
+                color:#666;
+            }
+            &:last-child {
+                border-bottom:none;
+            }
+          }
+        }
+    }
+
+    #block-comment-recent {
+       background:#DAE6F5;
+       a {
+            color:$heading-color !important;
+       }
+    }
+    #block-user-online {
+        @include border-radius-2(false);
+        border:1px solid $heading-color;
+        background:#DAE6F5;
+        margin-bottom:20px;
+        h2 {
+          font-weight:bold;
+          color:$heading-color;
+          margin:0;
+          padding:7px 5px;
+          border-bottom:1px solid  $heading-color;
+        }
+        p {
+            padding:0 5px;
+            font-weight: bold;
+            border-bottom:1px solid #ccc;
+        }
+        ul {
+            @include clearfix;
+            margin:0;
+            padding:0;
+        }
+        li {
+            &:last-child {
+                border-bottom:none;
+            }
+            float:left;
+            padding:5px;
+            list-style:none;
+            border-bottom:1px solid #ccc;
+            margin:0;
+            padding:0;
+            a {
+                color:$heading-color !important;
+                text-transform: uppercase;
+                padding-left:10px;
+            }
+        }
+    }
+}

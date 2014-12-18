@@ -1,0 +1,137 @@
+// import burbon 
+@import 'bourbon/bourbon';
+
+// core css - this is to owerwrite all the core styling like admin tool bar 
+@import 'core';
+
+// import BASE
+@import 'base';
+// import mixin
+@import "mixin";
+// inport header
+@import "header";
+// layout
+@import "layout";
+// import main section accross the main pages
+@import "section-main";
+// import serach page
+@import "search-page";
+// superfish menu
+@import "superfish";
+// adise 
+@import "aside";
+// forum comments 
+@import "forum-comments";
+// page specific
+@import "page-specific";
+// footer 
+@import "footer";
+
+//wusiwug
+p strong {
+    font-weight:bold;
+}
+p em {
+    font-style:italic;
+}
+
+
+
+body.html {
+    @include clearfix;
+    font-size:0.75em;
+    color: #222;
+    font-family: $body-font;
+    font-size: 100%;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+    background:url('../img/velebit.png') 40% top no-repeat #000;
+    
+    
+    iframe html body {
+        background:none !important;
+    }
+    
+    // edit links
+    .tabs-wrapper {
+        padding-top:10px;
+        border-left:1px solid $heading-color;
+        border-bottom:0;
+        border-right:1px solid $heading-color;
+        margin-bottom:0;
+        @include box-shadow(2px 2px 4px 1px hsla(61, 5%, 51%, 0.40));
+        li {
+            a {
+                color:#990000;
+                
+            }
+        }
+    } 
+    
+    div#header-ban {
+        position:absolute;
+        z-index:100;
+        top:0;
+        left:0;
+        height:331px;
+        width:100%;
+        background:$frame-bg-color;
+        opacity:0.8;
+        display:none;
+    }
+    nav.breadcrumb {
+        text-transform:uppercase;
+        border-top:1px solid #dae6f5;
+        border-bottom:1px solid #dae6f5;
+        padding:6px 10px;
+        @include linear-gradient(left, #dae6f5, #fff);
+        a {
+            color:#990000;
+            text-decoration:none;
+            &:hover {
+                text-decoration:underline;
+            }
+        }
+    }
+    
+    #block-search-form {
+        border-top:1px solid #dae6f5;
+        border-bottom:1px solid #dae6f5;
+        @include linear-gradient(right, #dae6f5, #fff);
+        margin-top:10px;
+        padding:3px 0 2px 0;
+        position:relative;
+        input[type='submit'] {
+            text-indent: -9999px;
+            background:url('../img/search-icon.png') 0 0 no-repeat;
+            border:none;
+            width:40px;
+            height:20px;
+            position:absolute;
+            right:-15px;
+            top:5px;
+            cursor:pointer;
+        }
+        input[type='search'] {
+            border:none;
+            border:1px solid #199b44 !important;
+            @include box-shadow(2px 2px 3px 1px hsla(61, 5%, 51%, 0.40));
+            width:195px;
+            color:#990000;
+        }
+    }
+       
+    
+}
+
+
+// dev default command:
+// use this one all the time to include burboun 
+// sass --watch -t expanded src:css -r src/bourbon/lib/bourbon.rb
+// sass --style compressed --watch src:css/ -r src/bourbon/lib/bourbon.rb
+
+// sass --watch -t expanded src:css
+
+// Example (project root directory)
+// sass --watch stylesheets/sass:stylesheets -r ./stylesheets/sass/bourbon/lib/bourbon.rb
