@@ -1,6 +1,17 @@
 CHANGELOG for MultiLink modules
 ===============================
 
+Tue 6 May 2014 12:54:31 PM CEST
+* Fixed bug in multilink_filter "Generic HTML" format. See: https://drupal.org/node/2259441
+
+=== Planned for release as 2.10 ===
+
+
+Wed 11 Apr 2012 08:23:37 PM CEST
+
+MultiLink Filter
+* Prevented PHP strict-mode warning when referenced node does not exist.
+
 Mon 30 Jan 2012 12:10:17 PM CET
 
 General tidy-up of comments and code standards.  No functional changes.

@@ -10,12 +10,6 @@
 
 function multilink_filter_filter_info() {
 
-  /* @todo
-  $patched = defined('check_markup_language_patch_1');
-  $enabled = variable_get($mod_prefix . 'allow_cache', FALSE);
-  $no_cache = !($patched && $enabled);
-  */
-
   $filters['multilink_filter'] = array(
     'title' => 'MultiLink',
     'description' => t('Creates links to nodes, selecting a translated version if available.'),
@@ -24,8 +18,9 @@ function multilink_filter_filter_info() {
     'tips callback' => '_multilink_filter_process_tips',
     //'default settings' => '_multilink_filter_default_settings',
 
-    // We must disallow caching. Drupal caches by $node->language, not current selected language.
-    'cache' => FALSE,
+    // We must disallow caching by default. Drupal caches by $node->language, not current selected language.
+    'cache' => module_exists('plc'),
+    //'cache' => FALSE,
   );
 
   return $filters;
@@ -57,7 +52,7 @@ function _multilink_filter_getnode($nid) {
     // $nid was invalid.
     $msg = t('Referenced node @nid does not exist', array('@nid' => $nid));
     watchdog('multilink', $msg, array(), WATCHDOG_WARNING);
-    $link->nid = $nid;
+    @$link->nid = $nid;
     $link->title = t('Not found');
   }
   // Security - check access to the node before allowing use of cached title.
@@ -199,7 +194,7 @@ function _multilink_filter_link_formats($format) {
 
   // Add Generic HTML format to the end.
   // Note: For simplicity, we only allow for relative paths such as /node/123.
-  $formats['Generic HTML'] = array('/node/', '/(<a.*href=["\']?)(\/node\/)(\d+)(.*?>.*<\/a>)/');
+  $formats['Generic HTML'] = array('/node/', '/(<a .*?href=["\']?)(\/node\/)(\d+)(.*?>.*?<\/a>)/');
 
   return $formats;
 }
